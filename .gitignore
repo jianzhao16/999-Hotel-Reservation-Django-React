@@ -1,6 +1,7 @@
 # React Staff
 
 # dependencies
+.idea/
 /node_modules
 /.pnp
 .pnp.js
@@ -169,3 +170,4 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 .vscode
+.idea/999-Hotel-Reservation-Django-React.iml

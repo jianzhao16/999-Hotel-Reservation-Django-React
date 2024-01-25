@@ -1,6 +1,9 @@
 import os
-from decouple import config
+#from decouple import *
 from datetime import timedelta
+
+from unipath import Path
+from dj_database_url import parse as db_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -10,13 +13,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
+#SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY='9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+#DEBUG = config('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -133,6 +137,12 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
 ]
 
+# for sqlite
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
+# for mysql
+#DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Token Configuration For JWT Authentication
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
@@ -155,3 +165,4 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
